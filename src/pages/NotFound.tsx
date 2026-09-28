@@ -3,7 +3,7 @@ import Seo from '../components/Seo'
 
 export default function NotFound() {
   return (
-    <div className="page container">
+    <div className="page container notfound">
       <Seo
         title="Page not found — Vrat"
         description="The page you were looking for could not be found."
@@ -15,7 +15,7 @@ export default function NotFound() {
           The page you were looking for doesn’t exist or may have moved.
         </p>
       </header>
-      <div style={{ textAlign: 'center' }}>
+      <div className="notfound__actions">
         <Link to="/" className="btn btn--primary">
           Back to home
         </Link>

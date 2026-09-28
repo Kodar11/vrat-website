@@ -1,6 +1,7 @@
-import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import Logo from './Logo'
+import PlayLink from './PlayLink'
 
 const NAV = [
   { to: '/', label: 'Home', end: true },
@@ -12,43 +13,44 @@ const NAV = [
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const { pathname } = useLocation()
+
+  // Close the mobile menu whenever the route changes.
+  const [lastPath, setLastPath] = useState(pathname)
+  if (pathname !== lastPath) {
+    setLastPath(pathname)
+    setOpen(false)
+  }
+
+  // The bar gains its divider only once content scrolls beneath it.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
 
   return (
-    <header className="header">
+    <header
+      className={`header${scrolled || open ? ' is-scrolled' : ''}${
+        open ? ' is-open' : ''
+      }`}
+    >
       <div className="container header__inner">
         <Link to="/" className="brand" aria-label="Vrat — home">
           <Logo className="brand__mark" />
           <span>Vrat</span>
         </Link>
-
-        <button
-          type="button"
-          className="nav-toggle"
-          aria-expanded={open}
-          aria-controls="primary-nav"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? (
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path
-                d="M6 6l12 12M18 6L6 18"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-            </svg>
-          ) : (
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path
-                d="M4 7h16M4 12h16M4 17h16"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-            </svg>
-          )}
-        </button>
 
         <nav
           id="primary-nav"
@@ -68,7 +70,29 @@ export default function Header() {
               {item.label}
             </NavLink>
           ))}
+          <PlayLink
+            className="btn btn--primary nav__cta-mobile"
+            onClick={() => setOpen(false)}
+          />
         </nav>
+
+        <div className="header__end">
+          <PlayLink className="btn btn--primary btn--sm header__cta" label="Get Vrat" />
+
+          <button
+            type="button"
+            className="nav-toggle"
+            aria-expanded={open}
+            aria-controls="primary-nav"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="nav-toggle__bars" aria-hidden="true">
+              <span />
+              <span />
+            </span>
+          </button>
+        </div>
       </div>
     </header>
   )
