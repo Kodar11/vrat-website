@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
-
-const FOOTER_EMAIL = 'tanmaychavan13@gmail.com'
+import { CONTACT_EMAIL, PLAY_STORE_URL } from '../siteConfig'
 
 export default function Footer() {
   return (
@@ -27,6 +26,11 @@ export default function Footer() {
                 <li>
                   <Link to="/contact">Contact</Link>
                 </li>
+                <li>
+                  <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
+                    Get Vrat on Google Play
+                  </a>
+                </li>
               </ul>
             </nav>
 
@@ -46,7 +50,7 @@ export default function Footer() {
               <h4>Contact</h4>
               <ul>
                 <li>
-                  <a href={`mailto:${FOOTER_EMAIL}`}>{FOOTER_EMAIL}</a>
+                  <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
                 </li>
               </ul>
             </div>

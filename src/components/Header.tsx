@@ -4,9 +4,9 @@ import Logo from './Logo'
 
 const NAV = [
   { to: '/', label: 'Home', end: true },
+  { to: '/about', label: 'About' },
   { to: '/privacy', label: 'Privacy' },
   { to: '/terms', label: 'Terms' },
-  { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },
 ]
 

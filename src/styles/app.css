@@ -344,6 +344,272 @@
   font-weight: 500;
 }
 
+.trust__note {
+  margin-top: 26px;
+  text-align: left;
+}
+
+.trust__note p {
+  margin: 0;
+  font-size: 0.97rem;
+}
+
+/* Hero secondary link */
+.hero__sub {
+  margin-top: 22px;
+  font-size: 0.95rem;
+}
+
+.hero__sub a {
+  color: var(--text-muted);
+}
+
+.hero__sub a:hover {
+  color: var(--primary);
+}
+
+.btn svg {
+  width: 19px;
+  height: 19px;
+  flex: none;
+}
+
+.btn--lg {
+  padding: 14px 26px;
+  font-size: 1.02rem;
+}
+
+/* In-page anchor target sits below the sticky header */
+.section--anchor {
+  scroll-margin-top: 66px;
+}
+
+/* How it works */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.step {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}
+
+.step__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--primary-border);
+  background: var(--primary-bg);
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 14px;
+}
+
+.step h3 {
+  margin-bottom: 6px;
+}
+
+.step p {
+  font-size: 0.96rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 940px) {
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 28px;
+  }
+}
+
+@media (max-width: 520px) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Why Vrat */
+.contrast {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: var(--readw);
+  margin: 0 auto;
+}
+
+.contrast__col {
+  border: 1px solid var(--primary-border);
+  border-radius: var(--radius);
+  padding: 24px 24px 18px;
+  background: var(--primary-bg);
+}
+
+.contrast__col--muted {
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.contrast__col h3 {
+  margin-bottom: 14px;
+}
+
+.contrast__col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contrast__col li {
+  padding: 7px 0;
+  color: var(--text);
+  border-top: 1px solid var(--divider);
+}
+
+.contrast__col li:first-child {
+  border-top: none;
+}
+
+.contrast__col--muted li {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--disabled);
+}
+
+@media (max-width: 560px) {
+  .contrast {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Free vs Lifetime */
+.plans {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: var(--readw);
+  margin: 0 auto;
+}
+
+.plan {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px 24px;
+  background: var(--surface);
+}
+
+.plan h3 {
+  font-size: 1.25rem;
+}
+
+.plan__note {
+  margin-top: 6px;
+  font-size: 0.94rem;
+  color: var(--text-muted);
+}
+
+.plan ul {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 18px 0 0;
+  border-top: 1px solid var(--divider);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.plan li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--text);
+  font-size: 0.97rem;
+}
+
+.plan li svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  margin-top: 4px;
+  color: var(--primary);
+}
+
+.plans__foot {
+  max-width: var(--readw);
+  margin: 20px auto 0;
+  text-align: center;
+  font-size: 0.93rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 560px) {
+  .plans {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Security & control */
+.controls {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 940px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px 28px;
+}
+
+.controls li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.controls .card__icon {
+  flex: none;
+  margin: 2px 0 0;
+}
+
+.controls h3 {
+  font-size: 1rem;
+  margin-bottom: 3px;
+}
+
+.controls p {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 860px) {
+  .controls {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Download CTA */
+.cta {
+  text-align: center;
+}
+
+.cta p {
+  margin: 12px 0 28px;
+  color: var(--text-secondary);
+}
+
 /* ======================================================================
    Page container (interior pages)
    ====================================================================== */
@@ -506,6 +772,25 @@
 .contact-card p {
   color: var(--text-secondary);
   margin-bottom: 24px;
+}
+
+.contact-topics {
+  list-style: none;
+  margin: -8px 0 26px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.contact-topics li {
+  font-size: 0.9rem;
+  color: var(--text);
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
 }
 
 .email-pill {

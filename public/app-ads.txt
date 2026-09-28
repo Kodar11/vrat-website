@@ -1,0 +1,7 @@
+# app-ads.txt for Vrat (com.tanmaychavan.vrat)
+#
+# PLACEHOLDER — no AdMob publisher ID has been supplied yet.
+# Replace the comment below with the exact line from your AdMob account:
+#   AdMob → Apps → View all apps → app-ads.txt → "How to set up app-ads.txt"
+# It has the form:  google.com, pub-<your-16-digit-id>, DIRECT, f08c47fec0942fa0
+# Do not guess or edit the publisher ID by hand; copy it from AdMob.
